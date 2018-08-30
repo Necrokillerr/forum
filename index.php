@@ -5,6 +5,13 @@ Description: Website with Database
 Date: 30.08.2018
 Version: 1.0
 -->
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+include"./login.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +20,7 @@ Version: 1.0
         <title>Login</title>
     </head>
     <body>
-        <form method="POST">
+        <form action="login.php" method="POST">
             <fieldset>
                 <legend>Connection</legend>
                 <label>Identifiant:</label>
@@ -23,7 +30,7 @@ Version: 1.0
                 <input type="submit" name="btnLogin"/>
             </fieldset>
             <a href="./registration.php">Pas encore inscrit ?</a>
-        </form>        
+        </form>
         <?php
         
         ?>

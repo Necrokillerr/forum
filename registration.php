@@ -5,6 +5,12 @@ Description: Website with Database
 Date: 30.08.2018
 Version: 1.0
 -->
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
