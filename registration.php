@@ -10,6 +10,9 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 
+if(isset($_SESSION["msgRegister"])){
+    echo $_SESSION["msgRegister"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,19 +22,19 @@ if(session_status() == PHP_SESSION_NONE){
         <title>Register</title>
     </head>
     <body>
-        <form method="POST">
+        <form action="registrationScript.php" method="POST">
             <fieldset>
                 <legend>Inscription</legend>
                 <label>Prenom:</label>
-                <input type="text" name="tbxFirstNameRegister"/>
+                <input type="text" name="tbxFNameRegister" value="<?php if(isset($_SESSION["fNameRegister"])){echo $_SESSION["fNameRegister"];} ?>" required=""/>
                 <label>Nom:</label>
-                <input type="text" name="tbxLastNameRegister"/>
+                <input type="text" name="tbxLNameRegister" value="<?php if(isset($_SESSION["lNameRegister"])){echo $_SESSION["lNameRegister"];} ?>" required=""/>
                 <label>Identifiant:</label>
-                <input type="text" name="tbxUsernameRegister"/>
+                <input type="text" name="tbxUserRegister" value="<?php if(isset($_SESSION["userRegister"])){echo $_SESSION["userRegister"];} ?>" required=""/>
                 <label>Mot de passe:</label>
-                <input type="password" name="tbxPasswordRegister"/>
+                <input type="password" name="tbxPasswordRegister" required=""/>
                 <label>Validation du mot de passe:</label>
-                <input type="password" name="tbxValidationPasswordRegister"/>
+                <input type="password" name="tbxValidationPasswordRegister" required=""/>
                 <input type="submit" name="btnRegister"/>
             </fieldset>
             <a href="./index.php">Retour sur connection</a>

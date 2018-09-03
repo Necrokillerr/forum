@@ -11,6 +11,10 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 include"./login.php";
+
+if(isset($_SESSION["msg"])){
+    echo $_SESSION["msg"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +36,6 @@ include"./login.php";
             <a href="./registration.php">Pas encore inscrit ?</a>
         </form>
         <?php
-        
         ?>
     </body>
 </html>
